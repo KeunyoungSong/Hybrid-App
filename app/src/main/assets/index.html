@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hybrid App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #response, #locationResponse {
+            margin-top: 20px;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+<h1>Hybrid App</h1>
+<h2>Send Message to native for Toast</h2>
+<p>Enter a message to send to native app:</p>
+<input type="text" id="messageInput" />
+<button onclick="sendMessageToNative()">Send to Native</button>
+
+<h2>Received Message From Native</h2>
+<div>
+    <p>Response from native app will appear below.</p>
+</div>
+<div id="response"></div>
+
+<h2>Location Information</h2>
+<button onclick="requestLocation()">Request Location</button>
+<div><p>Location data from native app will appear below.</p></div>
+<div id="locationResponse"></div>
+
+<script>
+    function sendMessageToNative() {
+        const message = document.getElementById('messageInput').value;
+        if (window.Android) {
+            window.Android.showToast(message);
+        }
+    }
+
+    function receiveDataFromNative(data) {
+        const responseDiv = document.getElementById('response');
+        responseDiv.innerHTML = `<p>Received from native: ${data}</p>`;
+        return `WebView Received data successfully, this is a response from WebView: ${data}`
+    }
+
+    function requestLocation() {
+        if (window.Android) {
+            window.Android.requestLocation();
+        }
+    }
+
+    function receiveLocationFromNative(location) {
+        const locationDiv = document.getElementById('locationResponse');
+        locationDiv.innerHTML = `<p>Received location: ${location}</p>`;
+    }
+</script>
+</body>
+</html>
