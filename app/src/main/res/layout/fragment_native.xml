@@ -6,19 +6,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:paddingHorizontal="20dp"
+    android:paddingVertical="16dp"
     tools:context=".NativeFragment">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="WebView로 데이터 전송"
-        android:textSize="32sp" />
+        android:textSize="32sp"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/editTextData"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter data"
+        android:layout_marginTop="4dp"
+        android:hint="웹뷰로전송할 데이터를 입력하세요"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -27,6 +31,7 @@
         android:id="@+id/buttonSendData"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
         android:text="Send to WebView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,7 +42,8 @@
         android:id="@+id/textViewResponse"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Response from WebView"
+        android:layout_marginTop="4dp"
+        android:text="보낸 전송에 대해 웹뷰로부터 반환받은 데이터"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonSendData" />
@@ -45,14 +51,16 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="웹뷰로 위치정보 전송"
         android:layout_marginTop="40dp"
-        android:textSize="32sp" />
+        android:text="웹뷰로 위치정보 전송"
+        android:textSize="32sp"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/buttonSendLocation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
         android:text="Send Location to WebView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
