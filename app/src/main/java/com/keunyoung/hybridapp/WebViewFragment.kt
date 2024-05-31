@@ -36,7 +36,7 @@ class WebViewFragment : Fragment() {
 			webChromeClient = WebChromeClient()
 			settings.javaScriptEnabled = true
 			addJavascriptInterface(WebAppInterface(), "Android")
-			loadUrl("file:///android_asset/index.html") // 서버 URL로 변경
+			loadUrl("https://hybridappwebview-soeaddpmlq-uc.a.run.app")
 		}
 	}
 	
