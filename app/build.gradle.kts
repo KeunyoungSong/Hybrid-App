@@ -46,6 +46,7 @@ dependencies {
 	// 추가된 의존성 목록
 	
 	testImplementation(libs.junit)
+	implementation(libs.play.services.location)
 	
 	
 	androidTestImplementation(libs.androidx.junit)
