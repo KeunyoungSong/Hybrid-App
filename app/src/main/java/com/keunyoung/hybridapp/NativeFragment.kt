@@ -49,8 +49,9 @@ class NativeFragment : Fragment() {
 			val webViewFragment = activity.getFragmentAt(0) as? WebViewFragment
 			webViewFragment?.binding?.webView?.evaluateJavascript(
 				"javascript:receiveDataFromNative('$data')",
-			){
-				binding.textViewResponse.text = it
+			){response ->
+				// WebView에서 처리한 결과를 네이티브에서 처리
+				handleWebViewResponse(response)
 			}
 		}
 	}
@@ -86,6 +87,10 @@ class NativeFragment : Fragment() {
 				Toast.makeText(activity, "성공적으로 위치를 가져옴", Toast.LENGTH_SHORT).show()
 			}
 		}
+	}
+	
+	private fun handleWebViewResponse(response: String) {
+		binding.textViewResponse.text = response
 	}
 	
 	override fun onDestroyView() {
